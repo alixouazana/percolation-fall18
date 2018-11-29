@@ -13,17 +13,17 @@ public class PercolationDFSFast extends PercolationDFS{
 			if(row == 0) {
 				dfs(row,col);
 			}
-			if(row !=0 && isFull(row-1,col)) {
+			else if(inBounds(row-1, col)&& isFull(row-1,col)) {
 				dfs(row,col);
 			}
-			if(row != myGrid.length && isFull(row+1, col)){
+			else if(inBounds(row+1, col) && isFull(row+1, col)){
 				dfs(row,col);
 			}
 			
-			if(col != 0 && isFull(row,col-1)) {
+			else if(inBounds(row,col-1) && isFull(row,col-1)) {
 				dfs(row,col);
 			}
-			if(col != myGrid[0].length && isFull(row,col+1)) {
+			else if(inBounds(row, col+1) && isFull(row,col+1)) {
 				dfs(row,col);
 			}
 			
