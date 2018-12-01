@@ -10,7 +10,7 @@
 public interface IUnionFind {
 
 	/**
-	 * Instantiate N isolated components in [0,N-1]
+	 * Instantiate  n]
 	 */
 	public void initialize(int n);
 
@@ -34,6 +34,7 @@ public interface IUnionFind {
 	 * containing p and q
 	 */
 	public void union(int p, int q);
+	
 	
 	/**
 	 * return size

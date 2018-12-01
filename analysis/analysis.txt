@@ -1,17 +1,31 @@
-Your name
-Your netid
-
-Copy/Paste results from PercolationStats using PercolationDFS
-
+Alix Ouazana
+aro16
+-- Note: my values are shown with commas instead of points for decimals because my computer is in French -- 
 
 Copy/Paste results from PercolationStats using PercolationDFSFast
-
+simulation data for 20 trials
+grid	mean	stddev	time
+100	    0,593	0,014	0,209
+200	    0,591	0,010	0,139
+400	    0,590	0,006	0,780
+800	    0,594	0,004	4,173
+Then Stack Overflow Error
 
 Copy/Paste results from PercolationStats using PercolationBFS
-
+simulation data for 20 trials
+grid	mean	stddev	time
+100	    0,593	0,014	0,095
+200	    0,591	0,010	0,355
+400	    0,590	0,006	0,659
+800	    0,594	0,004	4,691
+1600	0,592	0,002	25,259
+3200	0,593	0,001	181,214
 
 Copy/Paste results from PercolationStats using PercolationUF 
 with the QuickUWPC UnionFind implementation.
+
+
+
 
 1. How does doubling the grid size affect running time (keeping # trials fixed)
 
