@@ -9,7 +9,7 @@ grid	mean	stddev	time
 200	    0,591	0,010	0,139
 400	    0,590	0,006	0,780
 800	    0,594	0,004	4,173
-Then Stack Overflow Error
+Then Stack Overflow Error because DFSFast uses more space memory than BFS and Union Find.
 
 Copy/Paste results from PercolationStats using PercolationBFS
 simulation data for 20 trials
@@ -24,13 +24,45 @@ grid	mean	stddev	time
 Copy/Paste results from PercolationStats using PercolationUF 
 with the QuickUWPC UnionFind implementation.
 
-
-
+simulation data for 20 trials
+grid	mean	stddev	time
+100	    0,593	0,014	0,081
+200	    0,591	0,010	0,126
+400	    0,590	0,006	0,646
+800	    0,594	0,004	3,186
+1600	0,592	0,002	16,919
+3200	0,593	0,001	139,631
 
 1. How does doubling the grid size affect running time (keeping # trials fixed)
-
+Running time seems to be related with 
+If we plot running time as a function of grid size for all three codes we obtain a best fit curve that is polynomial 
+of degree two which means doubling the grid size should multiply running time by four (neglecting the coefficients of the polynomial fit). 
+This can be see in the DFSFast from 400 to 800 (rounding 0.780 to 1). This can also be seen in BFS from 400 to 800 and in UF. Of course a factor for x2 in the 
+equation makes these results more precise. However, we can say in general that there is a squared relationship. 
 
 2. How does doubling the number of trials affect running time.
+simulation data for 40 trials
+grid	mean	stddev	time
+100		0,594	0,015	0,225
+200		0,591	0,009	0,329
+400		0,591	0,005	1,082
+800		0,593	0,004	6,338
+1600	0,593	0,002	31,203
+3200	0,593	0,001	272,754
 
+This is the output for UF. We can see that the data approximately doubles for every grid size as the number of trials doubles. 
 
 3. Estimate the largest grid size you can run in 24 hours with 20 trials. Explain your reasoning.
+
+Plotting running time as a function of grid size for all three codes and adding a polynomial best fit to the curve we can get equations of order 
+two for all curves and solve for grid size with 86400 seconds = 24 hours (60*60*24 = 86400) (find x). 
+Assuming infinite memory for DFSFast, the equation for best fit is: y = 9E-06(x^2) - 0,0028x + 0,3705 solving for y = 86400 we get x is approximately 98000.
+For BFS, the equation for the best fit is: y = 3E-05x^2 - 0,0253x + 4,9019 solving for y = 86400 we get x is approximately 54000. 
+For Union Find, the equation for the best fit is: y = 2E-05x^2 - 0,0225x + 4,4783 we get x is approximately 66200. 
+These x values are the largest grid size you can run in 24 hours with 20 trials (assuming the grids are not necessarily squares). 
+
+
+
+
+
+
